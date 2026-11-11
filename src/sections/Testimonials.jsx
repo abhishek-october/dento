@@ -4,30 +4,30 @@ import TestimonialCard from '../components/TestimonialCard';
 const SAMPLE_TESTIMONIALS = [
   {
     id: 't-1',
-    focusTag: '01 • Less Administrative Work',
+    focusTag: 'Less Administrative Work',
     quote:
-      'Consolidating our front-desk intake, clinical SOAP notes, and treatment invoicing into one workspace cut our end-of-day reconciliation time in half. Our clinicians finish their notes before the next patient sits down.',
+      'Consolidating our iPad front-desk intake, clinical SOAP notes, and insurance claim scrubbing into one cloud workspace eliminated repetitive paperwork. Our clinicians complete their charting before the next patient is seated.',
     roleTitle: 'Principal General Dentist (Sample Persona)',
-    practiceType: '2-Chair Independent Dental Practice • Placeholder Content',
-    highlightMetric: 'Less Admin Work',
+    practiceType: 'Independent Dental Practice • Sample Workflow Outcome',
+    highlightMetric: 'Streamlined Admin',
   },
   {
     id: 't-2',
-    focusTag: '02 • Better Patient Record Management',
+    focusTag: 'Better Patient Record Management',
     quote:
-      'Having the interactive odontogram, allergy alerts, past prescriptions, and bitewing X-rays unified on a single screen means we never have to switch between sensor software and paper charts chairside.',
+      'Having the interactive odontogram, allergy alerts, eRx history, and bitewing X-rays unified on a single screen means we never have to switch between separate imaging software and paper charts chairside.',
     roleTitle: 'Clinical Director & Prosthodontist (Sample Persona)',
-    practiceType: 'Multi-Chair Specialty Clinic • Placeholder Content',
-    highlightMetric: 'Unified Records',
+    practiceType: 'Multi-Chair Specialty Clinic • Sample Workflow Outcome',
+    highlightMetric: 'Unified Cloud EHR',
   },
   {
     id: 't-3',
-    focusTag: '03 • Easier Appointment Tracking',
+    focusTag: 'Easier Appointment & Recall Tracking',
     quote:
-      'Color-coded chair allocation and automated recall reminders transformed how we coordinate hygiene visits and multi-stage root canal follow-ups across four operatories.',
+      'Color-coded operatory chair allocation, online patient self-scheduling, and automated recall reminders transformed how we coordinate hygiene visits and phased root canal follow-ups.',
     roleTitle: 'Practice Operations Coordinator (Sample Persona)',
-    practiceType: 'Multi-Dentist Family Clinic • Placeholder Content',
-    highlightMetric: 'Smarter Scheduling',
+    practiceType: 'Multi-Dentist Family Clinic • Sample Workflow Outcome',
+    highlightMetric: 'Automated Flow',
   },
 ];
 
@@ -41,12 +41,12 @@ export default function Testimonials() {
               Clinician Experience • Sample Content
             </span>
             <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-[#123D40]">
-              Designed around the rhythm of real dental practices.
+              Designed around the rhythm of modern dental practices.
             </h2>
           </div>
 
           <div className="text-xs text-[#222B2B]/65 bg-white px-3.5 py-2 rounded-xl border border-[#123D40]/10 max-w-md">
-            <strong>Transparency Note:</strong> The cards below are clearly marked sample workflow testimonials illustrating target clinical outcomes until verified customer case studies are published.
+            <strong>Transparency Note:</strong> The cards below are clearly marked sample workflow narratives illustrating qualitative clinical outcomes.
           </div>
         </div>
 
@@ -59,4 +59,3 @@ export default function Testimonials() {
     </section>
   );
 }
-

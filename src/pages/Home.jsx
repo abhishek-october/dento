@@ -38,7 +38,7 @@ export default function Home() {
       <main className="flex-1">
         <Hero onOpenDemo={handleOpenDemo} />
         <TrustBar />
-        <ProblemSolution />
+        <ProblemSolution onOpenDemo={handleOpenDemo} />
         <Features />
         <AIAnalysis onOpenDemo={handleOpenDemo} />
         <Workflow onOpenDemo={handleOpenDemo} />
@@ -60,4 +60,3 @@ export default function Home() {
     </div>
   );
 }
-

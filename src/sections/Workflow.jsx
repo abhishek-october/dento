@@ -10,39 +10,64 @@ import {
   Globe,
   Check,
   ArrowUpRight,
+  Tablet,
+  PenTool,
+  ClipboardCheck,
+  Smartphone,
 } from 'lucide-react';
 import Button from '../components/Button';
+
+const IPAD_CAPABILITIES = [
+  {
+    icon: ClipboardCheck,
+    title: 'Waiting Room iPad Check-In Kiosk',
+    description:
+      'Patients verify demographics, update medical histories, record allergies, and e-sign consent forms on a locked-down iPad kiosk—flowing straight into the EHR chart.',
+  },
+  {
+    icon: PenTool,
+    title: 'Touch Odontogram & Freehand Annotation',
+    description:
+      'Chart tooth surfaces, periodontal pocket depths, and draw directly over radiographs or intraoral photos chairside using touch or stylus.',
+  },
+  {
+    icon: Smartphone,
+    title: 'Chairside Treatment Presentation & Mobile Access',
+    description:
+      'Walk patients through phased treatment plans and X-rays on an iPad in the operatory, capture instant digital approval signatures, and check schedules from anywhere.',
+  },
+];
 
 const WORKFLOW_STEPS = [
   {
     step: 'Step 01',
     title: 'Register Your Practice',
-    description: 'Set up your clinic, dentists, chairs and operating hours.',
+    description: 'Configure your clinic locations, dentists, operatory chairs, and appointment profiles.',
     icon: Building,
-    previewChip: '3 Chairs • 4 Clinicians • 8am–7pm',
+    previewChip: 'Custom Operatories • Provider Calendars',
   },
   {
     step: 'Step 02',
-    title: 'Add Your Patients',
-    description: 'Create patient profiles and digitize their dental records.',
+    title: 'Onboard & Check In Patients',
+    description: 'Import existing records or let patients complete paperless digital intake on Web or iPad.',
     icon: UserPlus,
     previewChip: 'Medical Hx • Odontogram • Allergies',
   },
   {
     step: 'Step 03',
-    title: 'Manage Daily Operations',
+    title: 'Chart, Image & Prescribe',
     description:
-      'Schedule appointments, document consultations and prepare treatment plans.',
+      'Document consultations with SOAP macros or Ambient AI Scribe, review X-rays, and send eRx.',
     icon: CalendarClock,
-    previewChip: 'Smart Calendar • SOAP Notes • Invoices',
+    previewChip: 'SOAP Notes • AI Imaging • eRx',
   },
   {
     step: 'Step 04',
-    title: 'Review and Grow',
+    title: 'Bill Claims & Engage Patients',
     description:
-      'Use imaging assistance, follow-up tracking and practice analytics.',
+      'Scrub insurance claims automatically, collect Text-to-Pay balances, and automate hygiene recalls.',
     icon: TrendingUp,
-    previewChip: 'AI X-ray Review • Recall • Analytics',
+    previewChip: 'Clean Claims • Patient Portal • Recall',
   },
 ];
 
@@ -51,50 +76,147 @@ const AUDIENCE_SEGMENTS = [
     id: 'independent',
     badge: 'Solo Practitioners',
     title: 'Independent Dentists',
-    subtitle: 'Run a calm, paperless single-chair or boutique dental office.',
+    subtitle: 'Run a calm, paperless single-chair or boutique dental practice with zero IT overhead.',
     icon: UserCheck,
     bullets: [
-      'Manage patients and appointments',
-      'Maintain digital dental records',
-      'Track treatments and payments',
+      'Manage patients, online booking, and appointments',
+      'Maintain digital dental records and odontograms',
+      'Track treatment plans, claims, and patient payments',
     ],
-    metricLabel: 'Setup Time',
-    metricValue: 'Same-Day Onboarding',
+    workflowTag: 'Cloud & iPad Ready',
   },
   {
     id: 'growing-clinics',
-    badge: 'Multi-Chair Practices',
+    badge: 'Multi-Chair & Specialty Clinics',
     title: 'Growing Dental Clinics',
-    subtitle: 'Synchronize associate dentists, specialists, hygienists, and chairs.',
+    subtitle: 'Synchronize associate dentists, orthodontists, oral surgeons, hygienists, and chairs.',
     icon: Users,
     featured: true,
     bullets: [
-      'Manage multiple dentists',
-      'Coordinate chairs and appointments',
-      'Track clinic performance',
+      'Manage multiple dentists and specialty SOAP templates',
+      'Coordinate operatory chairs, iPad kiosks, and recalls',
+      'Automate insurance eligibility and claim scrubbing',
     ],
-    metricLabel: 'Operatory Flow',
-    metricValue: 'Multi-Provider Sync',
+    workflowTag: 'Multi-Provider Sync',
   },
   {
     id: 'multi-location',
     badge: 'Dental Groups & Hospitals',
     title: 'Multi-location Practices',
-    subtitle: 'Unify clinical standards and financial visibility across branches.',
+    subtitle: 'Unify clinical charting standards, imaging archives, and billing across all branches.',
     icon: Globe,
     bullets: [
-      'Centralized patient management',
-      'Location-wise reporting',
-      'Standardized workflows',
+      'Centralized cloud patient EHR across locations',
+      'Standardized procedure codes and billing profiles',
+      'Role-based access controls and unified RCM workflows',
     ],
-    metricLabel: 'Enterprise Control',
-    metricValue: 'Cross-Branch Ledger',
+    workflowTag: 'Enterprise Cloud Governance',
   },
 ];
 
 export default function Workflow({ onOpenDemo }) {
   return (
     <div className="bg-[#F8F8F3]">
+      {/* DrChrono-Style Mobile & iPad Point-of-Care Showcase Section */}
+      <section
+        id="ipad-mobility"
+        className="py-20 sm:py-24 bg-[#F0F2EF] border-b border-[#123D40]/10"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <div className="lg:col-span-6 space-y-5">
+              <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-[#247C70] bg-white px-3 py-1 rounded-full border border-[#123D40]/10">
+                <Tablet className="w-3.5 h-3.5" />
+                Mobile-First Point-of-Care EHR
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-[#123D40] leading-tight">
+                Built for the Operatory Chair, Front Desk, and iPad.
+              </h2>
+              <p className="text-base text-[#222B2B]/75 leading-relaxed">
+                Inspired by DrChrono&apos;s pioneering mobile EHR experience, DentoChrono gives clinicians complete freedom to check in patients, annotate dental radiographs, chart odontograms, and capture consent signatures on iPad or desktop web.
+              </p>
+
+              <div className="space-y-3.5 pt-2">
+                {IPAD_CAPABILITIES.map((cap) => {
+                  const Icon = cap.icon;
+                  return (
+                    <div
+                      key={cap.title}
+                      className="p-4 rounded-xl bg-white border border-[#123D40]/10 shadow-xs flex items-start gap-3.5"
+                    >
+                      <div className="w-9 h-9 rounded-lg bg-[#DFF2EA] text-[#123D40] flex items-center justify-center shrink-0">
+                        <Icon className="w-4 h-4 text-[#247C70]" />
+                      </div>
+                      <div>
+                        <h3 className="text-sm font-heading font-bold text-[#123D40]">
+                          {cap.title}
+                        </h3>
+                        <p className="text-xs text-[#222B2B]/75 mt-1 leading-relaxed">
+                          {cap.description}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Right: iPad Chairside & Check-In Kiosk Mockup Frame */}
+            <div className="lg:col-span-6">
+              <div className="rounded-3xl bg-[#123D40] p-4 sm:p-6 shadow-clinical-lg border-4 border-[#222B2B]">
+                <div className="rounded-2xl bg-[#F8F8F3] overflow-hidden border border-white/15">
+                  <div className="bg-[#123D40] text-white px-4 py-3 flex items-center justify-between text-xs">
+                    <span className="font-heading font-bold flex items-center gap-2">
+                      <Tablet className="w-4 h-4 text-[#C8E6A0]" />
+                      iPad Chairside &amp; Kiosk Mode
+                    </span>
+                    <span className="text-[10px] px-2 py-0.5 rounded bg-[#247C70] text-[#C8E6A0] font-semibold">
+                      Touch &amp; Stylus Ready
+                    </span>
+                  </div>
+
+                  <div className="p-5 space-y-4 text-xs">
+                    <div className="p-3.5 rounded-xl bg-white border border-[#123D40]/10 flex items-center justify-between">
+                      <div>
+                        <div className="text-[10px] font-semibold uppercase tracking-wider text-[#247C70]">
+                          Waiting Room Kiosk Check-In
+                        </div>
+                        <div className="text-sm font-heading font-bold text-[#123D40] mt-0.5">
+                          Marcus Sterling • Digital Intake Completed
+                        </div>
+                      </div>
+                      <span className="px-2.5 py-1 rounded-full bg-[#DFF2EA] text-[#123D40] font-semibold text-[10px]">
+                        Synced to Chart
+                      </span>
+                    </div>
+
+                    <div className="p-4 rounded-xl bg-white border border-[#123D40]/10 space-y-2.5">
+                      <div className="flex items-center justify-between">
+                        <span className="font-heading font-bold text-[#123D40]">
+                          Chairside Treatment Plan &amp; Stylus Consent
+                        </span>
+                        <span className="text-[10px] font-mono text-[#247C70]">Tooth #16 • Ceramic Crown</span>
+                      </div>
+                      <p className="text-[11px] text-[#222B2B]/75">
+                        Patient reviewed Bitewing X-ray overlay and phased procedure breakdown chairside on iPad.
+                      </p>
+                      <div className="p-3 rounded-lg bg-[#F8F8F3] border border-dashed border-[#247C70]/40 flex items-center justify-between">
+                        <span className="font-serif italic text-base text-[#123D40]">
+                          Elena Rostova
+                        </span>
+                        <span className="text-[10px] font-semibold text-[#247C70]">
+                          ✓ Digital Signature Verified
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* SECTION 7: How It Works */}
       <section
         id="workflow"
@@ -106,16 +228,14 @@ export default function Workflow({ onOpenDemo }) {
               How It Works
             </span>
             <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-[#123D40]">
-              From clinic setup to daily clinical excellence in four steps.
+              From clinic setup to daily clinical flow in four connected steps.
             </h2>
             <p className="text-base text-[#222B2B]/75 mt-3">
-              Dento OS is engineered for busy dental teams—no complicated server installations or weeks of disruptive staff retraining.
+              Cloud-native deployment means no local server maintenance or disruptive hardware installations.
             </p>
           </div>
 
-          {/* 4 Connected Workflow Cards */}
           <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Desktop Horizontal Connector Line */}
             <div
               className="hidden lg:block absolute top-14 left-12 right-12 h-0.5 bg-gradient-to-r from-[#123D40]/15 via-[#247C70]/40 to-[#123D40]/15 z-0"
               aria-hidden="true"
@@ -162,24 +282,44 @@ export default function Workflow({ onOpenDemo }) {
         </div>
       </section>
 
-      {/* SECTION 8: Built for Every Dental Practice */}
+      {/* SECTION 8: Built for Every Dental Practice & Specialty */}
       <section
         id="solutions"
         className="py-20 sm:py-24 bg-[#F0F2EF] border-b border-[#123D40]/10"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-14">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
             <div className="max-w-2xl">
               <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-[#247C70] bg-white px-3 py-1 rounded-full mb-3 border border-[#123D40]/10">
-                Built for Every Dental Practice
+                Practice Types &amp; Dental Specialties
               </span>
               <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-[#123D40]">
-                Scales seamlessly from a single operatory chair to multi-location groups.
+                Customizable workflows for every dental specialty and clinic structure.
               </h2>
             </div>
             <p className="text-sm text-[#222B2B]/75 max-w-md">
-              Whether you are an independent general dentist, an orthodontic specialist, or a growing multi-clinic group, Dento OS adapts to your clinical structure.
+              Whether you run a solo general dentistry studio, an orthodontic center, an oral surgery practice, or a multi-branch group, templates adapt to your clinical protocol.
             </p>
+          </div>
+
+          {/* Specialty Pills Bar */}
+          <div className="flex flex-wrap gap-2 mb-8">
+            {[
+              'General & Family Dentistry',
+              'Orthodontics & Clear Aligners',
+              'Oral & Maxillofacial Surgery',
+              'Endodontics',
+              'Periodontics & Implantology',
+              'Pediatric Dentistry',
+              'Prosthodontics',
+            ].map((spec) => (
+              <span
+                key={spec}
+                className="text-xs font-semibold px-3.5 py-1.5 rounded-full bg-white text-[#123D40] border border-[#123D40]/12 shadow-2xs"
+              >
+                {spec}
+              </span>
+            ))}
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -262,14 +402,14 @@ export default function Workflow({ onOpenDemo }) {
                   >
                     <div>
                       <div className="text-[10px] uppercase tracking-wider opacity-65">
-                        {seg.metricLabel}
+                        Architecture
                       </div>
                       <div
                         className={`text-xs font-heading font-bold ${
                           seg.featured ? 'text-[#C8E6A0]' : 'text-[#247C70]'
                         }`}
                       >
-                        {seg.metricValue}
+                        {seg.workflowTag}
                       </div>
                     </div>
                     <Button
@@ -278,7 +418,7 @@ export default function Workflow({ onOpenDemo }) {
                       icon={ArrowUpRight}
                       onClick={() => onOpenDemo(`${seg.title} Solution`)}
                     >
-                      Explore Setup
+                      Schedule Demo
                     </Button>
                   </div>
                 </div>
@@ -290,4 +430,3 @@ export default function Workflow({ onOpenDemo }) {
     </div>
   );
 }
-

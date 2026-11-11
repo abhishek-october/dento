@@ -2,17 +2,15 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
   Calendar,
-  Users,
-  Activity,
-  TrendingUp,
-  Clock,
+  FileCheck2,
+  ShieldCheck,
   CheckCircle2,
   Scan,
   Sparkles,
-  FileText,
   ChevronRight,
   Stethoscope,
-  Bell,
+  Mic,
+  Tablet,
 } from 'lucide-react';
 import { HERO_APPOINTMENTS } from '../assets/dentalData';
 
@@ -27,9 +25,9 @@ export default function DashboardPreview({ onSelectXrayDemo }) {
 
   return (
     <div className="relative w-full">
-      {/* Main High-Fidelity SaaS Window */}
+      {/* Main Cloud EHR & Practice Management Window (DrChrono-Inspired Layout, Zero Metrics) */}
       <div className="rounded-2xl bg-white border border-[#123D40]/15 shadow-clinical-lg overflow-hidden">
-        {/* Top Window Chrome & Clinic Status Bar */}
+        {/* Top Window Chrome & Cloud EHR Status Bar */}
         <div className="bg-[#123D40] text-[#F8F8F3] px-4 py-3 flex items-center justify-between border-b border-white/10">
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-1.5">
@@ -40,13 +38,13 @@ export default function DashboardPreview({ onSelectXrayDemo }) {
             <div className="h-3.5 w-[1px] bg-white/15" />
             <div className="flex items-center gap-2 text-xs font-medium">
               <Stethoscope className="w-3.5 h-3.5 text-[#C8E6A0]" />
-              <span>Apex Dental Studio • Main Operatory Wing</span>
+              <span>DentoChrono Cloud EHR • Web &amp; iPad Sync Active</span>
             </div>
           </div>
           <div className="flex items-center gap-2.5">
-            <span className="hidden sm:inline-flex items-center gap-1.5 text-[11px] px-2 py-0.5 rounded-md bg-[#247C70]/50 text-[#DFF2EA] border border-[#C8E6A0]/25">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#C8E6A0] animate-pulse" />
-              3 Chairs Active
+            <span className="hidden sm:inline-flex items-center gap-1.5 text-[11px] px-2.5 py-0.5 rounded-md bg-[#247C70]/50 text-[#DFF2EA] border border-[#C8E6A0]/25">
+              <Tablet className="w-3 h-3 text-[#C8E6A0]" />
+              iPad Kiosk Connected
             </span>
             <div className="w-6 h-6 rounded-full bg-[#DFF2EA] text-[#123D40] text-[10px] font-bold flex items-center justify-center">
               AV
@@ -56,72 +54,76 @@ export default function DashboardPreview({ onSelectXrayDemo }) {
 
         {/* Workspace Content */}
         <div className="p-4 sm:p-5 bg-[#F8F8F3]/60 space-y-4">
-          {/* 4 Metric Cards Row: Today's appointments, Total patients, Pending treatments, Revenue overview */}
+          {/* 4 Qualitative Workflow Status Cards (No Numeric Metrics) */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
             <div className="bg-white p-3 rounded-xl border border-[#123D40]/10 shadow-sm">
               <div className="flex items-center justify-between text-[11px] text-[#222B2B]/60 mb-1">
-                <span>Today&apos;s Appts</span>
+                <span>Clinical Charting</span>
+                <FileCheck2 className="w-3.5 h-3.5 text-[#247C70]" />
+              </div>
+              <div className="text-xs font-heading font-bold text-[#123D40]">
+                SOAP &amp; Odontogram
+              </div>
+              <div className="text-[10px] font-medium text-[#247C70] mt-0.5">
+                Auto-Synced to Chair
+              </div>
+            </div>
+
+            <div className="bg-white p-3 rounded-xl border border-[#123D40]/10 shadow-sm">
+              <div className="flex items-center justify-between text-[11px] text-[#222B2B]/60 mb-1">
+                <span>Ambient AI Scribe</span>
+                <Mic className="w-3.5 h-3.5 text-[#247C70]" />
+              </div>
+              <div className="text-xs font-heading font-bold text-[#123D40]">
+                Voice-to-Note Ready
+              </div>
+              <div className="text-[10px] font-medium text-[#247C70] mt-0.5">
+                Chairside Dictation
+              </div>
+            </div>
+
+            <div className="bg-white p-3 rounded-xl border border-[#123D40]/10 shadow-sm">
+              <div className="flex items-center justify-between text-[11px] text-[#222B2B]/60 mb-1">
+                <span>Insurance &amp; RCM</span>
+                <ShieldCheck className="w-3.5 h-3.5 text-[#247C70]" />
+              </div>
+              <div className="text-xs font-heading font-bold text-[#123D40]">
+                Eligibility Verified
+              </div>
+              <div className="text-[10px] font-medium text-[#247C70] mt-0.5">
+                Clean Claim Scrubber
+              </div>
+            </div>
+
+            <div className="bg-white p-3 rounded-xl border border-[#123D40]/10 shadow-sm">
+              <div className="flex items-center justify-between text-[11px] text-[#222B2B]/60 mb-1">
+                <span>Patient Intake</span>
                 <Calendar className="w-3.5 h-3.5 text-[#247C70]" />
               </div>
-              <div className="flex items-baseline justify-between">
-                <span className="text-lg font-heading font-bold text-[#123D40]">24</span>
-                <span className="text-[10px] font-semibold text-[#247C70] bg-[#DFF2EA] px-1.5 py-0.5 rounded">
-                  4 In Clinic
-                </span>
+              <div className="text-xs font-heading font-bold text-[#123D40]">
+                iPad Check-In Live
               </div>
-            </div>
-
-            <div className="bg-white p-3 rounded-xl border border-[#123D40]/10 shadow-sm">
-              <div className="flex items-center justify-between text-[11px] text-[#222B2B]/60 mb-1">
-                <span>Total Patients</span>
-                <Users className="w-3.5 h-3.5 text-[#247C70]" />
-              </div>
-              <div className="flex items-baseline justify-between">
-                <span className="text-lg font-heading font-bold text-[#123D40]">1,842</span>
-                <span className="text-[10px] font-semibold text-[#247C70]">+18 wk</span>
-              </div>
-            </div>
-
-            <div className="bg-white p-3 rounded-xl border border-[#123D40]/10 shadow-sm">
-              <div className="flex items-center justify-between text-[11px] text-[#222B2B]/60 mb-1">
-                <span>Pending Plans</span>
-                <Activity className="w-3.5 h-3.5 text-amber-600" />
-              </div>
-              <div className="flex items-baseline justify-between">
-                <span className="text-lg font-heading font-bold text-[#123D40]">19</span>
-                <span className="text-[10px] font-medium text-amber-700 bg-amber-50 px-1.5 py-0.5 rounded">
-                  7 Awaiting Sign
-                </span>
-              </div>
-            </div>
-
-            <div className="bg-white p-3 rounded-xl border border-[#123D40]/10 shadow-sm">
-              <div className="flex items-center justify-between text-[11px] text-[#222B2B]/60 mb-1">
-                <span>Daily Revenue</span>
-                <TrendingUp className="w-3.5 h-3.5 text-[#247C70]" />
-              </div>
-              <div className="flex items-baseline justify-between">
-                <span className="text-lg font-heading font-bold text-[#123D40]">$6,480</span>
-                <span className="text-[10px] font-semibold text-[#247C70]">92% Coll.</span>
+              <div className="text-[10px] font-medium text-[#247C70] mt-0.5">
+                Consents e-Signed
               </div>
             </div>
           </div>
 
-          {/* Middle Section: Upcoming Appointments & Chair Filter */}
+          {/* Middle Section: Live Patient Flow & Clinical Documentation Panel */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-3.5">
-            {/* Left 7 cols: Upcoming Appointments List */}
+            {/* Left 7 cols: Live Operatory Schedule & Eligibility Status */}
             <div className="lg:col-span-7 bg-white rounded-xl border border-[#123D40]/10 p-3.5 shadow-sm">
               <div className="flex items-center justify-between mb-3">
                 <div>
                   <h4 className="text-xs font-heading font-bold text-[#123D40] uppercase tracking-wider">
-                    Upcoming Appointments
+                    Live Patient Flow &amp; Operatory Queue
                   </h4>
                   <p className="text-[11px] text-[#222B2B]/60">
-                    Click a patient to inspect clinical preparation status
+                    Click a patient to inspect clinical EHR &amp; eligibility readiness
                   </p>
                 </div>
                 <div className="flex items-center gap-1 bg-[#F0F2EF] p-0.5 rounded-lg text-[10px] font-medium">
-                  {['All', 'Chair 01', 'Chair 02'].map((filter) => (
+                  {['All', 'Operatory 01', 'Operatory 02'].map((filter) => (
                     <button
                       key={filter}
                       type="button"
@@ -132,7 +134,7 @@ export default function DashboardPreview({ onSelectXrayDemo }) {
                           : 'text-[#222B2B]/70 hover:text-[#123D40]'
                       }`}
                     >
-                      {filter}
+                      {filter === 'All' ? 'All Chairs' : filter.replace('Operatory ', 'Op ')}
                     </button>
                   ))}
                 </div>
@@ -152,7 +154,7 @@ export default function DashboardPreview({ onSelectXrayDemo }) {
                       }`}
                     >
                       <div className="flex items-center gap-2.5 min-w-0">
-                        <div className="text-[11px] font-mono font-semibold text-[#123D40] bg-white px-2 py-1 rounded border border-[#123D40]/10 shrink-0">
+                        <div className="text-[10px] font-semibold text-[#123D40] bg-white px-2 py-1 rounded border border-[#123D40]/10 shrink-0">
                           {apt.time}
                         </div>
                         <div className="min-w-0">
@@ -160,11 +162,9 @@ export default function DashboardPreview({ onSelectXrayDemo }) {
                             <span className="text-xs font-semibold text-[#123D40] truncate">
                               {apt.patient}
                             </span>
-                            {apt.xrayAttached && (
-                              <span className="text-[9px] font-semibold px-1.5 py-0.2 rounded bg-[#123D40]/10 text-[#123D40]">
-                                X-Ray
-                              </span>
-                            )}
+                            <span className="text-[9px] font-semibold px-1.5 py-0.2 rounded bg-[#DFF2EA] text-[#123D40]">
+                              {apt.eligibility}
+                            </span>
                           </div>
                           <div className="text-[11px] text-[#222B2B]/65 truncate">
                             {apt.procedure} • <span className="text-[#247C70]">{apt.chair}</span>
@@ -191,44 +191,37 @@ export default function DashboardPreview({ onSelectXrayDemo }) {
               </div>
             </div>
 
-            {/* Right 5 cols: Revenue Overview & Recent X-ray Uploads & Patient Activity */}
+            {/* Right 5 cols: Ambient AI Scribe & Recent X-Ray / eRx Workflow */}
             <div className="lg:col-span-5 flex flex-col gap-3">
-              {/* Revenue Overview Mini Chart */}
-              <div className="bg-white rounded-xl border border-[#123D40]/10 p-3.5 shadow-sm">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs font-heading font-bold text-[#123D40]">
-                    Revenue Overview
+              {/* Ambient AI Clinical Scribe Preview */}
+              <div className="bg-white rounded-xl border border-[#123D40]/10 p-3.5 shadow-sm space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-heading font-bold text-[#123D40] flex items-center gap-1.5">
+                    <Mic className="w-3.5 h-3.5 text-[#247C70]" />
+                    Ambient Scribe • Draft SOAP
                   </span>
-                  <span className="text-[10px] font-semibold text-[#247C70]">Mon – Sat</span>
+                  <span className="text-[10px] font-semibold text-[#247C70] bg-[#DFF2EA] px-2 py-0.5 rounded">
+                    Auto-Structured
+                  </span>
                 </div>
-                <div className="flex items-end gap-2 h-16 pt-2 px-1">
-                  {[
-                    { day: 'M', h: '55%', val: '$4.2k' },
-                    { day: 'T', h: '72%', val: '$5.4k' },
-                    { day: 'W', h: '88%', val: '$6.5k', active: true },
-                    { day: 'T', h: '65%', val: '$4.9k' },
-                    { day: 'F', h: '94%', val: '$7.1k' },
-                    { day: 'S', h: '48%', val: '$3.6k' },
-                  ].map((bar, idx) => (
-                    <div key={idx} className="flex-1 flex flex-col items-center gap-1 h-full justify-end">
-                      <div
-                        title={bar.val}
-                        style={{ height: bar.h }}
-                        className={`w-full rounded-t-md transition-all ${
-                          bar.active ? 'bg-[#123D40]' : 'bg-[#DFF2EA] hover:bg-[#247C70]/60'
-                        }`}
-                      />
-                      <span className="text-[9px] font-medium text-[#222B2B]/60">{bar.day}</span>
-                    </div>
-                  ))}
+                <div className="p-2.5 rounded-lg bg-[#F8F8F3] border border-[#123D40]/10 text-[11px] text-[#222B2B]/80 space-y-1">
+                  <div>
+                    <strong className="text-[#123D40]">Subj:</strong> Sensitivity to cold on upper right molar (#16).
+                  </div>
+                  <div>
+                    <strong className="text-[#123D40]">Assessment:</strong> Disto-occlusal recurrent caries #16; intact pulp vitality.
+                  </div>
+                  <div>
+                    <strong className="text-[#123D40]">Plan &amp; Code:</strong> Full ceramic crown prep (CDT D2740) queued for billing.
+                  </div>
                 </div>
               </div>
 
-              {/* Recent X-ray Uploads & Patient Activity */}
-              <div className="bg-white rounded-xl border border-[#123D40]/10 p-3.5 shadow-sm space-y-2.5">
+              {/* Recent X-ray Uploads & eRx Activity */}
+              <div className="bg-white rounded-xl border border-[#123D40]/10 p-3.5 shadow-sm space-y-2">
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-heading font-bold text-[#123D40]">
-                    Recent X-ray Uploads & Activity
+                    Imaging, eRx &amp; Portal Feed
                   </span>
                   <Scan className="w-3.5 h-3.5 text-[#247C70]" />
                 </div>
@@ -253,17 +246,17 @@ export default function DashboardPreview({ onSelectXrayDemo }) {
                         Sterling, M. • Panoramic OPG
                       </span>
                     </div>
-                    <span className="text-[10px] text-[#222B2B]/60 shrink-0">12m ago</span>
+                    <span className="text-[10px] text-[#222B2B]/60 shrink-0">Chart Attached</span>
                   </div>
 
                   <div className="flex items-center justify-between p-1.5 rounded-lg bg-[#F8F8F3] border border-[#123D40]/10">
                     <div className="flex items-center gap-2 min-w-0">
                       <CheckCircle2 className="w-3 h-3 text-[#247C70] shrink-0" />
                       <span className="truncate text-[#222B2B]/80">
-                        Treatment Plan #TP-409 signed
+                        eRx Sent &amp; Treatment Consent Signed
                       </span>
                     </div>
-                    <span className="text-[10px] text-[#222B2B]/60 shrink-0">24m ago</span>
+                    <span className="text-[10px] text-[#247C70] font-medium shrink-0">Verified</span>
                   </div>
                 </div>
               </div>
@@ -272,7 +265,7 @@ export default function DashboardPreview({ onSelectXrayDemo }) {
         </div>
       </div>
 
-      {/* Secondary Floating Card: AI-Assisted Dental X-Ray Analysis Preview */}
+      {/* Secondary Floating Card: AI-Assisted Dental X-Ray Analysis & iPad Companion */}
       <motion.div
         initial={{ opacity: 0, y: 18 }}
         animate={{ opacity: 1, y: [0, -5, 0] }}
@@ -291,7 +284,7 @@ export default function DashboardPreview({ onSelectXrayDemo }) {
               <div className="text-xs font-heading font-bold text-white flex items-center gap-1.5">
                 <span>AI X-ray Assistant</span>
                 <span className="text-[9px] uppercase tracking-wider px-1.5 py-0.2 rounded bg-[#C8E6A0]/20 text-[#C8E6A0]">
-                  Demo
+                  Chairside
                 </span>
               </div>
               <div className="text-[10px] text-[#DFF2EA]/70">
@@ -313,7 +306,6 @@ export default function DashboardPreview({ onSelectXrayDemo }) {
         <div className="relative rounded-xl bg-[#0B2224] border border-white/10 p-2.5 flex items-center gap-3">
           <div className="relative w-20 h-16 rounded-lg bg-[#071618] border border-white/10 overflow-hidden shrink-0 flex items-center justify-center">
             <svg viewBox="0 0 100 80" className="w-full h-full">
-              {/* Synthetic Molar Teeth Crowns & Roots */}
               <path
                 d="M18 18 C15 10, 34 10, 34 18 L32 45 C30 56, 26 56, 25 44 L23 55 C21 62, 17 55, 18 42 Z"
                 fill="rgba(223,242,234,0.68)"
@@ -322,10 +314,8 @@ export default function DashboardPreview({ onSelectXrayDemo }) {
                 d="M50 16 C46 8, 72 8, 70 18 L68 48 C66 60, 61 58, 59 44 L56 58 C53 64, 49 56, 50 42 Z"
                 fill="rgba(223,242,234,0.75)"
               />
-              {/* Simulated Carious Radiolucency on Distal #16 */}
               <circle cx="66" cy="24" r="5" fill="rgba(11,34,36,0.85)" />
             </svg>
-            {/* Bounding box overlay */}
             <div className="absolute top-2.5 right-3 w-6 h-6 rounded border-2 border-[#C8E6A0] bg-[#C8E6A0]/15 animate-pulse" />
           </div>
 
@@ -337,7 +327,7 @@ export default function DashboardPreview({ onSelectXrayDemo }) {
               </span>
             </div>
             <p className="text-[#DFF2EA]/85 leading-snug text-[10px]">
-              Possible interproximal radiolucency detected. Flagged for clinician review.
+              Possible interproximal radiolucency highlighted for clinician validation.
             </p>
           </div>
         </div>
@@ -345,4 +335,3 @@ export default function DashboardPreview({ onSelectXrayDemo }) {
     </div>
   );
 }
-

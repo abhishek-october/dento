@@ -4,57 +4,57 @@ import { ShieldCheck, HelpCircle } from 'lucide-react';
 
 const PRICING_TIERS = [
   {
-    name: 'STARTER',
+    name: 'FOUNDATION • STARTER',
     subtitle: 'For independent dentists.',
-    idealChairs: '1–2 Operatory Chairs',
+    idealChairs: 'Solo & Boutique Practices',
     description:
-      'Essential digital practice management for solo practitioners transitioning to a modern, paperless clinical workflow.',
-    pricingLabel: 'Tailored to Practice Size',
+      'Essential cloud EHR, scheduling, and patient engagement tools for solo practitioners transitioning to a modern, paperless workflow.',
+    pricingLabel: 'Tailored Practice Plan',
     pricingNote: 'Guided setup & patient data migration included',
-    ctaText: 'Get a Demo',
+    ctaText: 'Schedule a Demo',
     featured: false,
     features: [
-      'Patient management',
-      'Appointment scheduling',
-      'Digital records & odontograms',
-      'Basic reporting',
-      'Clinical notes & prescription templates',
+      'Cloud Dental EHR & customizable SOAP notes',
+      'Interactive digital odontograms & eRx',
+      'Multi-chair appointment scheduling & reminders',
+      'Waiting room iPad check-in kiosk & Patient Portal',
+      'Standard practice & billing reports',
     ],
   },
   {
-    name: 'PROFESSIONAL',
+    name: 'GROWTH • PROFESSIONAL',
     subtitle: 'For growing dental clinics.',
-    idealChairs: '3–8 Operatory Chairs',
+    idealChairs: 'Multi-Dentist Practices',
     description:
-      'Full-featured clinical, financial, and imaging workspace for multi-dentist clinics coordinating multiple chairs.',
+      'Full-featured clinical EHR, automated insurance eligibility, treatment planning, and dental imaging for multi-provider clinics.',
     pricingLabel: 'Custom Clinic Quote',
-    pricingNote: 'Includes multi-provider calendars & AI imaging preview',
-    ctaText: 'Get a Demo',
+    pricingNote: 'Includes RCM automation & AI imaging assistant',
+    ctaText: 'Schedule a Demo',
     featured: true,
     features: [
-      'Everything in Starter',
-      'Multiple dentists & provider schedules',
-      'Multi-stage treatment planning',
-      'Billing and payments',
-      'Dental imaging & AI X-ray assistant',
+      'Everything in Foundation / Starter',
+      'Multiple dentists & specialty templates',
+      'Multi-stage treatment planning & iPad e-signatures',
+      'Automated insurance eligibility & claims billing',
+      'Cloud dental imaging & AI X-ray review assistant',
     ],
   },
   {
-    name: 'ENTERPRISE',
+    name: 'PREMIUM • ENTERPRISE',
     subtitle: 'For multi-location dental groups.',
-    idealChairs: 'Multi-Branch / Hospitals',
+    idealChairs: 'Multi-Branch & Hospitals',
     description:
-      'Centralized governance, cross-clinic patient records, and executive analytics for dental groups and hospitals.',
+      'Centralized cloud EHR governance, Ambient AI Scribe, dedicated RCM workflows, and open API access for dental groups.',
     pricingLabel: 'Enterprise Agreement',
     pricingNote: 'Dedicated onboarding manager & SLA support',
     ctaText: 'Contact Sales',
     featured: false,
     features: [
-      'Everything in Professional',
-      'Multi-location management',
-      'Advanced analytics & custom exports',
-      'Granular role-based access control',
-      'Priority support & custom onboarding',
+      'Everything in Growth / Professional',
+      'Multi-location management & cross-branch EHR',
+      'Ambient AI Clinical Scribe & AI Claim Scrubber',
+      'Granular role-based access & audit logs',
+      'Open API access & priority onboarding support',
     ],
   },
 ];
@@ -71,10 +71,10 @@ export default function Pricing({ onOpenDemo }) {
             Plans &amp; Packaging
           </span>
           <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-[#123D40]">
-            Flexible plans built for practices of every scale.
+            Flexible EHR &amp; Practice Management plans built around your clinic.
           </h2>
           <p className="text-base text-[#222B2B]/75 mt-3">
-            Every plan includes encrypted cloud hosting, automated daily backups, and live onboarding for your clinical and front-desk team.
+            Every plan includes encrypted cloud hosting, native iPad &amp; web access, automated backups, and live onboarding for your clinical and front-desk team.
           </p>
         </div>
 
@@ -92,7 +92,7 @@ export default function Pricing({ onOpenDemo }) {
           <div className="flex items-center gap-2.5">
             <ShieldCheck className="w-5 h-5 text-[#247C70] shrink-0" />
             <span>
-              <strong>Need help migrating from Dentrix, Open Dental, or paper records?</strong> Our onboarding engineers handle historical patient &amp; X-ray imports at no extra software fee.
+              <strong>Switching from a legacy EHR or paper charts?</strong> Our onboarding specialists handle structured patient demographics, appointment history, and radiograph migration.
             </span>
           </div>
           <button
@@ -108,4 +108,3 @@ export default function Pricing({ onOpenDemo }) {
     </section>
   );
 }
-

@@ -3,10 +3,8 @@ import {
   Check,
   AlertTriangle,
   Calendar,
-  Clock,
   CreditCard,
   Scan,
-  FileText,
   Pill,
   Layers,
 } from 'lucide-react';
@@ -24,8 +22,8 @@ function FeatureVisualMockup({ featureId }) {
                 ER
               </div>
               <div>
-                <div className="font-semibold text-[#123D40]">Elena Rostova • 34F</div>
-                <div className="text-[10px] text-[#222B2B]/60">ID #PT-8841 • Last Visit: 14 Oct</div>
+                <div className="font-semibold text-[#123D40]">Elena Rostova</div>
+                <div className="text-[10px] text-[#222B2B]/60">Chart #PT-8841 • iPad Intake Synced</div>
               </div>
             </div>
             <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-red-50 text-red-700 border border-red-200 flex items-center gap-1">
@@ -36,15 +34,15 @@ function FeatureVisualMockup({ featureId }) {
           <div className="grid grid-cols-3 gap-2 text-[10px]">
             <div className="bg-white p-2 rounded-lg border border-[#123D40]/10">
               <div className="text-[#222B2B]/55">Medical Hx</div>
-              <div className="font-semibold text-[#123D40] mt-0.5">Controlled BP</div>
+              <div className="font-semibold text-[#123D40] mt-0.5">Verified Today</div>
             </div>
             <div className="bg-white p-2 rounded-lg border border-[#123D40]/10">
-              <div className="text-[#222B2B]/55">Documents</div>
-              <div className="font-semibold text-[#123D40] mt-0.5">4 Signed PDFs</div>
+              <div className="text-[#222B2B]/55">Consents</div>
+              <div className="font-semibold text-[#123D40] mt-0.5">e-Signed on iPad</div>
             </div>
             <div className="bg-white p-2 rounded-lg border border-[#123D40]/10">
               <div className="text-[#222B2B]/55">Recall Status</div>
-              <div className="font-semibold text-[#247C70] mt-0.5">6-Mo Hygiene</div>
+              <div className="font-semibold text-[#247C70] mt-0.5">Hygiene Active</div>
             </div>
           </div>
         </div>
@@ -59,18 +57,18 @@ function FeatureVisualMockup({ featureId }) {
               Multi-Chair Allocation
             </span>
             <span className="text-[10px] text-[#247C70] bg-[#DFF2EA] px-2 py-0.5 rounded">
-              SMS Reminders Active
+              Auto-Reminders On
             </span>
           </div>
           <div className="grid grid-cols-2 gap-2 text-[10px]">
             <div className="bg-white p-2.5 rounded-lg border-l-4 border-l-[#123D40] border border-[#123D40]/10">
-              <div className="font-bold text-[#123D40]">Chair 01 • Dr. Vance</div>
-              <div className="text-[#222B2B]/70 mt-0.5">09:00 Crown Prep (#16)</div>
+              <div className="font-bold text-[#123D40]">Operatory 01 • Dr. Vance</div>
+              <div className="text-[#222B2B]/70 mt-0.5">Crown Prep (#16)</div>
               <div className="text-[#247C70] font-medium mt-1">In Operatory</div>
             </div>
             <div className="bg-white p-2.5 rounded-lg border-l-4 border-l-[#247C70] border border-[#123D40]/10">
-              <div className="font-bold text-[#123D40]">Chair 02 • Dr. Patel</div>
-              <div className="text-[#222B2B]/70 mt-0.5">09:45 Implant Consult</div>
+              <div className="font-bold text-[#123D40]">Operatory 02 • Dr. Patel</div>
+              <div className="text-[#222B2B]/70 mt-0.5">Implant Consult</div>
               <div className="text-[#222B2B]/60 font-medium mt-1">Confirmed via SMS</div>
             </div>
           </div>
@@ -113,10 +111,10 @@ function FeatureVisualMockup({ featureId }) {
           </div>
           <div className="flex items-center justify-between text-[10px] bg-white px-2.5 py-1.5 rounded-lg border border-[#123D40]/10">
             <span className="text-[#222B2B]/75">
-              <strong>#{selectedTooth} Note:</strong>{' '}
+              <strong>#{selectedTooth} Chart:</strong>{' '}
               {selectedTooth === 16
-                ? 'Disto-occlusal ceramic inlay planned • Rx Amoxicillin logged'
-                : 'Sound enamel structure • Pocket depth 2mm'}
+                ? 'Disto-occlusal ceramic inlay planned • eRx logged'
+                : 'Intact enamel structure • Baseline periodontal probing'}
             </span>
             <Pill className="w-3.5 h-3.5 text-[#247C70] shrink-0" />
           </div>
@@ -129,23 +127,27 @@ function FeatureVisualMockup({ featureId }) {
           <div className="flex items-center justify-between text-[11px]">
             <span className="font-semibold text-[#123D40]">Phased Plan #TP-208</span>
             <span className="text-[10px] font-semibold px-2 py-0.5 rounded bg-[#DFF2EA] text-[#123D40]">
-              Patient Approved
+              Patient e-Signed
             </span>
           </div>
           <div className="space-y-1.5 text-[11px]">
             <div className="bg-white p-2 rounded-lg border border-[#123D40]/10 flex items-center justify-between">
               <div>
-                <span className="font-semibold text-[#123D40]">Stage 1: Root Canal #36</span>
-                <div className="text-[10px] text-[#247C70]">Completed • 04 Nov</div>
+                <span className="font-semibold text-[#123D40]">Phase 1: Endodontic Therapy #36</span>
+                <div className="text-[10px] text-[#247C70]">Completed &amp; Charted</div>
               </div>
-              <span className="font-mono font-semibold text-[#123D40]">$820</span>
+              <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-[#F0F2EF] text-[#123D40]">
+                CDT D3330
+              </span>
             </div>
             <div className="bg-white p-2 rounded-lg border border-[#123D40]/10 flex items-center justify-between">
               <div>
-                <span className="font-semibold text-[#123D40]">Stage 2: Zirconia Crown #36</span>
-                <div className="text-[10px] text-amber-700">Scheduled • Next Tuesday</div>
+                <span className="font-semibold text-[#123D40]">Phase 2: Zirconia Crown #36</span>
+                <div className="text-[10px] text-amber-700">Scheduled • Next Visit</div>
               </div>
-              <span className="font-mono font-semibold text-[#123D40]">$1,150</span>
+              <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-[#F0F2EF] text-[#123D40]">
+                CDT D2740
+              </span>
             </div>
           </div>
         </div>
@@ -156,23 +158,25 @@ function FeatureVisualMockup({ featureId }) {
         <div className="bg-[#F8F8F3] rounded-xl p-3.5 border border-[#123D40]/10 space-y-2 text-xs">
           <div className="flex items-center justify-between bg-white p-2.5 rounded-lg border border-[#123D40]/10">
             <div>
-              <div className="text-[10px] text-[#222B2B]/60">Invoice #INV-9402</div>
-              <div className="font-bold text-[#123D40] text-sm">$1,420.00</div>
+              <div className="text-[10px] text-[#222B2B]/60">Claim &amp; Invoice #INV-9402</div>
+              <div className="font-bold text-[#123D40] text-xs mt-0.5">
+                Eligibility &amp; Claim Scrubbed
+              </div>
             </div>
             <div className="text-right">
               <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#DFF2EA] text-[#123D40]">
-                Paid $1,100
+                ERA Auto-Posted
               </span>
-              <div className="text-[10px] text-[#222B2B]/60 mt-0.5">Bal: $320.00</div>
+              <div className="text-[10px] text-[#247C70] mt-0.5">Text-to-Pay Ready</div>
             </div>
           </div>
           <div className="grid grid-cols-2 gap-2 text-[10px]">
             <div className="bg-white p-2 rounded-lg border border-[#123D40]/10 flex items-center justify-between">
-              <span className="text-[#222B2B]/70">Family Discount</span>
-              <span className="font-semibold text-[#247C70]">-10% Applied</span>
+              <span className="text-[#222B2B]/70">Insurance Check</span>
+              <span className="font-semibold text-[#247C70]">Active Plan</span>
             </div>
             <div className="bg-white p-2 rounded-lg border border-[#123D40]/10 flex items-center justify-between">
-              <span className="text-[#222B2B]/70">Card / Split</span>
+              <span className="text-[#222B2B]/70">Portal / Split Pay</span>
               <CreditCard className="w-3.5 h-3.5 text-[#123D40]" />
             </div>
           </div>
@@ -190,17 +194,17 @@ function FeatureVisualMockup({ featureId }) {
           <div className="grid grid-cols-2 gap-2">
             <div className="rounded-lg bg-[#123D40] p-2.5 text-[#DFF2EA] flex flex-col justify-between h-20">
               <div className="flex items-center justify-between text-[9px] text-[#C8E6A0]">
-                <span>SCAN 01 • MAY</span>
+                <span>BASELINE SCAN</span>
                 <Scan className="w-3 h-3" />
               </div>
-              <div className="text-[10px] font-mono">Bitewing #16 Baseline</div>
+              <div className="text-[10px] font-mono">Bitewing #16 Pre-Op</div>
             </div>
             <div className="rounded-lg bg-[#0d2d30] p-2.5 text-[#DFF2EA] border border-[#C8E6A0]/40 flex flex-col justify-between h-20">
               <div className="flex items-center justify-between text-[9px] text-[#C8E6A0]">
-                <span>SCAN 02 • NOV</span>
+                <span>FOLLOW-UP SCAN</span>
                 <Layers className="w-3 h-3" />
               </div>
-              <div className="text-[10px] font-mono">Post-Inlay Fit Verified</div>
+              <div className="text-[10px] font-mono">Post-Inlay Margin Check</div>
             </div>
           </div>
         </div>
@@ -212,12 +216,10 @@ export default function FeatureCard({ feature }) {
   return (
     <div className="group rounded-2xl bg-white border border-[#123D40]/12 p-6 shadow-clinical hover:shadow-clinical-lg hover:border-[#247C70]/35 transition-all duration-300 flex flex-col justify-between">
       <div>
-        {/* Badge */}
         <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#247C70] bg-[#DFF2EA]/70 px-3 py-1 rounded-full mb-4">
           <span>{feature.badge}</span>
         </div>
 
-        {/* Title & Description */}
         <h3 className="text-xl font-heading font-bold text-[#123D40] mb-2.5">
           {feature.title}
         </h3>
@@ -225,13 +227,11 @@ export default function FeatureCard({ feature }) {
           {feature.description}
         </p>
 
-        {/* Interactive Visual Interface Preview */}
         <div className="mb-5">
           <FeatureVisualMockup featureId={feature.id} />
         </div>
       </div>
 
-      {/* Capabilities Checklist */}
       <ul className="space-y-2 pt-4 border-t border-[#123D40]/10">
         {feature.bullets.map((bullet, idx) => (
           <li key={idx} className="flex items-start gap-2.5 text-xs text-[#222B2B]/85">
@@ -245,4 +245,3 @@ export default function FeatureCard({ feature }) {
     </div>
   );
 }
-

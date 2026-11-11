@@ -8,10 +8,6 @@ import {
   Scan,
   BarChart3,
   Search,
-  Plus,
-  CheckCircle2,
-  AlertCircle,
-  Clock,
   Pill,
   FileText,
   Download,
@@ -19,11 +15,11 @@ import {
 
 const SHOWCASE_TABS = [
   { id: 'overview', label: 'Overview', icon: LayoutDashboard },
-  { id: 'patients', label: 'Patients', icon: Users },
+  { id: 'patients', label: 'Patients & EHR', icon: Users },
   { id: 'appointments', label: 'Appointments', icon: Calendar },
   { id: 'treatments', label: 'Treatment Plans', icon: ClipboardList },
   { id: 'imaging', label: 'Imaging', icon: Scan },
-  { id: 'reports', label: 'Reports', icon: BarChart3 },
+  { id: 'reports', label: 'RCM & Billing', icon: BarChart3 },
 ];
 
 export default function DashboardShowcase() {
@@ -39,13 +35,13 @@ export default function DashboardShowcase() {
         {/* Heading */}
         <div className="max-w-3xl mx-auto text-center mb-10">
           <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-[#247C70] bg-[#DFF2EA] px-3 py-1 rounded-full mb-3">
-            Interactive Product Showcase
+            Interactive Cloud EHR Showcase
           </span>
           <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-[#123D40]">
-            Experience the unified dental workspace.
+            Experience the unified dental EHR and practice workspace.
           </h2>
           <p className="text-base text-[#222B2B]/75 mt-3">
-            Switch between modules below to inspect how Dento OS connects clinical charting, chair scheduling, imaging, and financial reporting.
+            Switch between modules below to inspect how clinical charting, multi-chair scheduling, dental imaging, and revenue cycle billing work together.
           </p>
         </div>
 
@@ -74,7 +70,7 @@ export default function DashboardShowcase() {
           </div>
         </div>
 
-        {/* Full-Width Application Window Mockup */}
+        {/* Full-Width Application Window Mockup (Zero Numeric Metrics) */}
         <div className="rounded-2xl bg-white border border-[#123D40]/15 shadow-clinical-lg overflow-hidden">
           {/* App Top Bar */}
           <div className="bg-[#123D40] text-[#F8F8F3] px-4 sm:px-6 py-3.5 flex flex-wrap items-center justify-between gap-3 border-b border-white/10">
@@ -85,14 +81,14 @@ export default function DashboardShowcase() {
                 <span className="w-2.5 h-2.5 rounded-full bg-white/25" />
               </div>
               <span className="text-xs font-mono text-[#DFF2EA]/80">
-                app.dento.health/clinic/{activeTab}
+                cloud.dentochrono.health/workspace/{activeTab}
               </span>
             </div>
 
             <div className="flex items-center gap-3">
               <div className="hidden sm:flex items-center gap-2 px-3 py-1 rounded-lg bg-white/10 border border-white/10 text-xs text-[#DFF2EA]">
                 <Search className="w-3.5 h-3.5 text-[#C8E6A0]" />
-                <span>Search patients, teeth (#11–#48), or invoices...</span>
+                <span>Search patients, odontograms, claims, or eRx...</span>
               </div>
               <span className="text-xs font-semibold px-2.5 py-1 rounded-md bg-[#247C70] text-white">
                 Dr. Amelia Vance • Lead Clinician
@@ -101,7 +97,7 @@ export default function DashboardShowcase() {
           </div>
 
           {/* Tab Panel Body */}
-          <div className="p-5 sm:p-8 bg-[#F8F8F3]/70 min-h-[420px]">
+          <div className="p-5 sm:p-8 bg-[#F8F8F3]/70 min-h-[400px]">
             <AnimatePresence mode="wait">
               {activeTab === 'overview' && (
                 <motion.div
@@ -112,22 +108,22 @@ export default function DashboardShowcase() {
                   transition={{ duration: 0.2 }}
                   className="space-y-6"
                 >
-                  {/* Top KPI Row */}
+                  {/* Top Workflow Readiness Row (Qualitative Statuses Only) */}
                   <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                     {[
-                      { label: "Today's Scheduled Production", value: '$8,940', sub: '24 Appointments across 3 chairs', badge: '+14% vs avg' },
-                      { label: 'Patients Checked In / Seen', value: '16 / 24', sub: 'Avg wait time: 4 mins', badge: 'On Schedule' },
-                      { label: 'Treatment Plans Accepted', value: '86.4%', sub: '11 of 13 cases signed this week', badge: '$24.8k Pipeline' },
-                      { label: 'AI X-Ray Scans Reviewed', value: '38 Scans', sub: '14 Bitewings • 18 PAs • 6 OPGs', badge: '100% Validated' },
-                    ].map((kpi, i) => (
+                      { label: 'Operatory Schedule', value: 'Multi-Chair Sync', sub: 'Restorative, Implant & Hygiene', badge: 'Live Flow' },
+                      { label: 'iPad Check-In Kiosk', value: 'Digital Intake', sub: 'Medical Hx & HIPAA Consents', badge: 'Paperless' },
+                      { label: 'Clinical Documentation', value: 'Ambient AI Scribe', sub: 'SOAP Notes & Odontograms', badge: 'Auto-Draft' },
+                      { label: 'Revenue Cycle & Claims', value: 'Eligibility Verified', sub: 'Rule-Aware Claim Scrubber', badge: 'RCM Active' },
+                    ].map((card, i) => (
                       <div key={i} className="bg-white p-4 rounded-xl border border-[#123D40]/10 shadow-sm">
-                        <div className="text-xs text-[#222B2B]/60 font-medium">{kpi.label}</div>
-                        <div className="text-2xl font-heading font-bold text-[#123D40] mt-1">
-                          {kpi.value}
+                        <div className="text-xs text-[#222B2B]/60 font-medium">{card.label}</div>
+                        <div className="text-lg font-heading font-bold text-[#123D40] mt-1">
+                          {card.value}
                         </div>
                         <div className="flex items-center justify-between mt-2 pt-2 border-t border-[#123D40]/8 text-[11px]">
-                          <span className="text-[#222B2B]/65">{kpi.sub}</span>
-                          <span className="font-semibold text-[#247C70]">{kpi.badge}</span>
+                          <span className="text-[#222B2B]/65">{card.sub}</span>
+                          <span className="font-semibold text-[#247C70]">{card.badge}</span>
                         </div>
                       </div>
                     ))}
@@ -146,7 +142,7 @@ export default function DashboardShowcase() {
                           </p>
                         </div>
                         <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-[#DFF2EA] text-[#123D40]">
-                          Wednesday Morning Session
+                          Active Clinic Session
                         </span>
                       </div>
                       <table className="w-full text-left border-collapse text-xs min-w-[520px]">
@@ -155,16 +151,16 @@ export default function DashboardShowcase() {
                             <th className="py-2.5 pr-3">Operatory</th>
                             <th className="py-2.5 px-3">Patient</th>
                             <th className="py-2.5 px-3">Procedure &amp; Tooth</th>
-                            <th className="py-2.5 px-3">Imaging</th>
+                            <th className="py-2.5 px-3">Imaging / Chart</th>
                             <th className="py-2.5 pl-3 text-right">Status</th>
                           </tr>
                         </thead>
                         <tbody className="divide-y divide-[#123D40]/8">
                           {[
-                            { chair: 'Chair 01 • Dr. Vance', pt: 'Elena Rostova (34F)', proc: 'Ceramic Crown Prep (#16)', img: 'BW-2 Attached', status: 'In Procedure' },
-                            { chair: 'Chair 02 • Dr. Patel', pt: 'Marcus Sterling (42M)', proc: 'Implant Consult (#26)', img: 'Panoramic OPG', status: 'Checked In' },
-                            { chair: 'Chair 03 • Dr. Chen', pt: 'Hannah Lindqvist (28F)', proc: 'Clear Aligner Stage 8', img: 'Intraoral Scan', status: 'Ready for Doctor' },
-                            { chair: 'Chair 01 • 11:15 AM', pt: 'Devon Brooks (51M)', proc: 'Root Canal Obturation (#36)', img: 'Periapical PA', status: 'Confirmed' },
+                            { chair: 'Operatory 01 • Dr. Vance', pt: 'Elena Rostova', proc: 'Ceramic Crown Prep (#16)', img: 'Bitewing Attached', status: 'In Procedure' },
+                            { chair: 'Operatory 02 • Dr. Patel', pt: 'Marcus Sterling', proc: 'Implant Consult (#26)', img: 'Panoramic OPG', status: 'Checked In via iPad' },
+                            { chair: 'Operatory 03 • Dr. Chen', pt: 'Hannah Lindqvist', proc: 'Clear Aligner Progress Check', img: 'Intraoral Scan', status: 'Ready for Doctor' },
+                            { chair: 'Operatory 01 • Next Slot', pt: 'Devon Brooks', proc: 'Root Canal Obturation (#36)', img: 'Periapical PA', status: 'Eligibility Verified' },
                           ].map((row, idx) => (
                             <tr key={idx} className="hover:bg-[#F8F8F3]">
                               <td className="py-3 pr-3 font-semibold text-[#123D40]">{row.chair}</td>
@@ -198,10 +194,10 @@ export default function DashboardShowcase() {
                               <FileText className="w-3.5 h-3.5 text-[#247C70]" />
                               SOAP Note • #16 Prep
                             </span>
-                            <span className="text-[10px] text-[#222B2B]/55">09:20 AM</span>
+                            <span className="text-[10px] text-[#247C70]">Signed</span>
                           </div>
                           <p className="text-[11px] text-[#222B2B]/75 mt-1">
-                            Local infiltration 2% Lidocaine w/ 1:100k epi. Digital impression captured. Temp crown cemented with TempBond NE.
+                            Local infiltration administered. Digital impression captured. Provisional crown seated and occlusion verified.
                           </p>
                         </div>
 
@@ -209,12 +205,12 @@ export default function DashboardShowcase() {
                           <div className="flex items-center justify-between font-semibold text-[#123D40]">
                             <span className="flex items-center gap-1.5">
                               <Pill className="w-3.5 h-3.5 text-[#247C70]" />
-                              Prescription Issued
+                              Electronic Prescription (eRx)
                             </span>
                             <span className="text-[10px] text-[#247C70] font-semibold">Allergy Checked</span>
                           </div>
                           <p className="text-[11px] text-[#222B2B]/80 mt-1">
-                            Rx: Ibuprofen 400mg TID PRN pain (3 days) + Chlorhexidine Gluconate 0.12% Oral Rinse BID.
+                            Analgesic &amp; antimicrobial oral rinse transmitted electronically to patient&apos;s preferred pharmacy.
                           </p>
                         </div>
                       </div>
@@ -237,9 +233,9 @@ export default function DashboardShowcase() {
                       Active Patient Directory
                     </div>
                     {[
-                      { name: 'Elena Rostova', id: '#PT-8841', age: '34F', alert: 'Penicillin Allergy', recall: '14 May 2027', bal: '$0.00' },
-                      { name: 'Marcus Sterling', id: '#PT-9014', age: '42M', alert: 'No Known Allergies', recall: '02 Apr 2027', bal: '$320.00' },
-                      { name: 'Devon Brooks', id: '#PT-7429', age: '51M', alert: 'Hypertension (Controlled)', recall: '19 Feb 2027', bal: '$410.00' },
+                      { name: 'Elena Rostova', id: '#PT-8841', alert: 'Penicillin Allergy', portal: 'Portal Active', status: 'Eligibility Verified' },
+                      { name: 'Marcus Sterling', id: '#PT-9014', alert: 'No Known Allergies', portal: 'iPad Check-In Done', status: 'Eligibility Verified' },
+                      { name: 'Devon Brooks', id: '#PT-7429', alert: 'Controlled Hypertension', portal: 'Consents Signed', status: 'Pre-Auth Approved' },
                     ].map((pt, i) => (
                       <div
                         key={pt.id}
@@ -252,13 +248,13 @@ export default function DashboardShowcase() {
                       >
                         <div className="flex items-center justify-between">
                           <span className="font-heading font-bold text-sm text-[#123D40]">
-                            {pt.name} ({pt.age})
+                            {pt.name}
                           </span>
                           <span className="text-[11px] font-mono text-[#247C70]">{pt.id}</span>
                         </div>
                         <div className="flex items-center justify-between text-xs mt-1.5 text-[#222B2B]/70">
                           <span>Alert: {pt.alert}</span>
-                          <span>Balance: {pt.bal}</span>
+                          <span className="text-[#247C70] font-medium">{pt.status}</span>
                         </div>
                       </div>
                     ))}
@@ -268,7 +264,7 @@ export default function DashboardShowcase() {
                     <div className="flex flex-wrap items-center justify-between gap-2 pb-4 border-b border-[#123D40]/10">
                       <div>
                         <h4 className="text-lg font-heading font-bold text-[#123D40]">
-                          Longitudinal Dental Record &amp; Odontogram Summary
+                          Longitudinal Dental EHR &amp; Odontogram Summary
                         </h4>
                         <p className="text-xs text-[#222B2B]/65">
                           Includes medical history, allergies, tooth-wise procedures, signed consents, and family links
@@ -281,16 +277,16 @@ export default function DashboardShowcase() {
 
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
                       <div className="p-3 rounded-lg bg-[#F8F8F3] border border-[#123D40]/10">
-                        <div className="text-[#222B2B]/60">Periodontal Baseline</div>
-                        <div className="font-bold text-[#123D40] mt-0.5">Generalized 2–3mm • Localized 4mm (#46)</div>
+                        <div className="text-[#222B2B]/60">Periodontal Chart</div>
+                        <div className="font-bold text-[#123D40] mt-0.5">Full-Mouth Probing Recorded</div>
                       </div>
                       <div className="p-3 rounded-lg bg-[#F8F8F3] border border-[#123D40]/10">
                         <div className="text-[#222B2B]/60">Restorative History</div>
                         <div className="font-bold text-[#123D40] mt-0.5">#16 Crown Prep • #24 MOD Composite</div>
                       </div>
                       <div className="p-3 rounded-lg bg-[#F8F8F3] border border-[#123D40]/10">
-                        <div className="text-[#222B2B]/60">Patient Attachments</div>
-                        <div className="font-bold text-[#247C70] mt-0.5">4 X-Rays • 2 Signed Consents</div>
+                        <div className="text-[#222B2B]/60">Patient Portal &amp; Docs</div>
+                        <div className="font-bold text-[#247C70] mt-0.5">Digital Consents &amp; X-Rays Linked</div>
                       </div>
                     </div>
                   </div>
@@ -312,38 +308,38 @@ export default function DashboardShowcase() {
                         Multi-Chair Operatory Schedule
                       </h4>
                       <p className="text-xs text-[#222B2B]/65">
-                        Drag-and-drop chair allocation with automated SMS/WhatsApp confirmation tracking
+                        Drag-and-drop chair allocation with automated SMS, email, and portal confirmation tracking
                       </p>
                     </div>
                     <span className="text-xs font-semibold px-3 py-1 rounded-lg bg-[#DFF2EA] text-[#123D40]">
-                      96% Chair Utilization Today
+                      Online Booking &amp; Recall Sync Active
                     </span>
                   </div>
 
                   <div className="grid grid-cols-3 gap-4 min-w-[600px] text-xs">
                     {[
                       {
-                        chair: 'Chair 01 • Restorative & Endo (Dr. Vance)',
+                        chair: 'Operatory 01 • Restorative & Endo (Dr. Vance)',
                         slots: [
-                          { time: '09:00 – 10:15', pt: 'Elena Rostova', proc: 'Ceramic Crown Prep (#16)', tag: 'In Chair' },
-                          { time: '10:30 – 11:15', pt: ' Samuel Cho', proc: 'Composite Restoration (#25)', tag: 'Confirmed' },
-                          { time: '11:15 – 12:30', pt: 'Devon Brooks', proc: 'Root Canal Obturation (#36)', tag: 'Confirmed' },
+                          { time: 'Morning Session', pt: 'Elena Rostova', proc: 'Ceramic Crown Prep (#16)', tag: 'In Chair' },
+                          { time: 'Mid-Morning', pt: 'Samuel Cho', proc: 'Composite Restoration (#25)', tag: 'Confirmed' },
+                          { time: 'Late Morning', pt: 'Devon Brooks', proc: 'Root Canal Obturation (#36)', tag: 'Confirmed' },
                         ],
                       },
                       {
-                        chair: 'Chair 02 • Implants & Surgery (Dr. Patel)',
+                        chair: 'Operatory 02 • Implants & Surgery (Dr. Patel)',
                         slots: [
-                          { time: '09:00 – 09:45', pt: 'Clara Meyer', proc: 'Suture Removal (#46)', tag: 'Completed' },
-                          { time: '09:45 – 11:00', pt: 'Marcus Sterling', proc: 'Implant Consult + CBCT (#26)', tag: 'Checked In' },
-                          { time: '11:15 – 12:30', pt: 'Arthur Pendelton', proc: 'Surgical Extraction (#38)', tag: 'Confirmed' },
+                          { time: 'Morning Session', pt: 'Clara Meyer', proc: 'Post-Op Suture Check (#46)', tag: 'Completed' },
+                          { time: 'Mid-Morning', pt: 'Marcus Sterling', proc: 'Implant Consult + OPG (#26)', tag: 'Checked In' },
+                          { time: 'Late Morning', pt: 'Arthur Pendelton', proc: 'Surgical Extraction (#38)', tag: 'Confirmed' },
                         ],
                       },
                       {
-                        chair: 'Chair 03 • Ortho & Hygiene (Dr. Chen)',
+                        chair: 'Operatory 03 • Ortho & Hygiene (Dr. Chen)',
                         slots: [
-                          { time: '09:15 – 10:15', pt: 'Nadia Karim', proc: 'Ultrasonic Scaling & Polish', tag: 'Completed' },
-                          { time: '10:30 – 11:15', pt: 'Hannah Lindqvist', proc: 'Clear Aligner Check (Stage 8)', tag: 'Checked In' },
-                          { time: '11:30 – 12:15', pt: 'Leo Vance', proc: 'Pediatric Sealants (#16, #26)', tag: 'SMS Sent' },
+                          { time: 'Morning Session', pt: 'Nadia Karim', proc: 'Periodontal Maintenance & Polish', tag: 'Completed' },
+                          { time: 'Mid-Morning', pt: 'Hannah Lindqvist', proc: 'Clear Aligner Progress Check', tag: 'Checked In' },
+                          { time: 'Late Morning', pt: 'Leo Vance', proc: 'Preventive Sealants (#16, #26)', tag: 'Reminder Sent' },
                         ],
                       },
                     ].map((col, idx) => (
@@ -384,11 +380,11 @@ export default function DashboardShowcase() {
                         Multi-Stage Treatment Plan #TP-409 • Devon Brooks
                       </h4>
                       <p className="text-xs text-[#222B2B]/65">
-                        Phased clinical sequencing with transparent procedure estimates and digital patient approval
+                        Phased clinical sequencing with CDT procedure mapping and chairside iPad patient approval
                       </p>
                     </div>
                     <span className="text-xs font-semibold px-3 py-1 rounded-full bg-[#DFF2EA] text-[#123D40]">
-                      e-Signed by Patient • Total Estimate: $2,320
+                      e-Signed by Patient on iPad
                     </span>
                   </div>
 
@@ -398,22 +394,22 @@ export default function DashboardShowcase() {
                         phase: 'Phase 1 • Urgent Endodontics',
                         status: 'In Progress',
                         items: [
-                          { code: 'D3330', name: 'Molar Root Canal Therapy (#36)', fee: '$980' },
-                          { code: 'D2950', name: 'Core Buildup Including Pins (#36)', fee: '$290' },
+                          { code: 'CDT D3330', name: 'Molar Root Canal Therapy (#36)', state: 'Charted' },
+                          { code: 'CDT D2950', name: 'Core Buildup Including Pins (#36)', state: 'Charted' },
                         ],
                       },
                       {
                         phase: 'Phase 2 • Full Coverage Restoration',
-                        status: 'Scheduled Next Week',
+                        status: 'Scheduled Next Visit',
                         items: [
-                          { code: 'D2740', name: 'Crown - Porcelain/Ceramic (#36)', fee: '$1,050' },
+                          { code: 'CDT D2740', name: 'Crown - Porcelain/Ceramic (#36)', state: 'Lab Ordered' },
                         ],
                       },
                       {
                         phase: 'Phase 3 • Preventive Maintenance',
-                        status: 'Planned (3 Months)',
+                        status: 'Recall Queued',
                         items: [
-                          { code: 'D4910', name: 'Periodontal Maintenance Recall', fee: 'Included / Recall' },
+                          { code: 'CDT D4910', name: 'Periodontal Maintenance Recall', state: 'Auto-Reminder' },
                         ],
                       },
                     ].map((p, idx) => (
@@ -431,7 +427,9 @@ export default function DashboardShowcase() {
                                 <span className="text-[10px] font-mono text-[#247C70]">{it.code}</span>
                                 <div className="font-medium text-[#123D40]">{it.name}</div>
                               </div>
-                              <span className="font-mono font-bold text-[#123D40]">{it.fee}</span>
+                              <span className="text-[10px] font-semibold px-2 py-0.5 rounded bg-[#DFF2EA] text-[#123D40]">
+                                {it.state}
+                              </span>
                             </div>
                           ))}
                         </div>
@@ -469,14 +467,14 @@ export default function DashboardShowcase() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
                     {[
-                      { type: 'Right Bitewing (BW-2)', tooth: 'Teeth #15–#17, #45–#47', date: 'Today, 08:52 AM', note: 'AI Flag: Region #16 Distal Caries Review' },
-                      { type: 'Periapical PA (#36)', tooth: 'Mandibular Left 1st Molar', date: '04 Nov 2026', note: 'Working Length Confirmation • 21.5mm' },
-                      { type: 'Panoramic OPG Survey', tooth: 'Full Maxillo-Mandibular Arch', date: '12 May 2026', note: 'Baseline New Patient Examination' },
+                      { type: 'Right Bitewing (BW-2)', tooth: 'Teeth #15–#17, #45–#47', session: 'Current Visit', note: 'AI Flag: Region #16 Distal Caries Review' },
+                      { type: 'Periapical PA (#36)', tooth: 'Mandibular Left Molar', session: 'Endodontic Session', note: 'Periradicular & Root Canal Morphology View' },
+                      { type: 'Panoramic OPG Survey', tooth: 'Full Maxillo-Mandibular Arch', session: 'Baseline Exam', note: 'Attached to Longitudinal EHR Chart' },
                     ].map((scan, idx) => (
                       <div key={idx} className="rounded-xl bg-[#123D40] text-[#F8F8F3] p-4 space-y-2 border border-[#247C70]">
                         <div className="flex items-center justify-between text-[10px] text-[#C8E6A0] font-mono">
-                          <span>{scan.date}</span>
-                          <span>DICOM / HD</span>
+                          <span>{scan.session}</span>
+                          <span>DICOM / Cloud</span>
                         </div>
                         <div className="font-heading font-bold text-sm text-white">{scan.type}</div>
                         <div className="text-[11px] text-[#DFF2EA]/75">{scan.tooth}</div>
@@ -501,38 +499,44 @@ export default function DashboardShowcase() {
                   <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-[#123D40]/10">
                     <div>
                       <h4 className="text-base font-heading font-bold text-[#123D40]">
-                        Practice Financial Analytics &amp; Provider Production
+                        Revenue Cycle Management (RCM), Eligibility &amp; Claims Center
                       </h4>
                       <p className="text-xs text-[#222B2B]/65">
-                        Track gross production, net collections, outstanding balances, and chair utilization
+                        Automated insurance verification, AI claim scrubbing, ERA auto-posting, and patient billing
                       </p>
                     </div>
                     <span className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1 rounded-lg bg-[#F0F2EF] text-[#123D40]">
                       <Download className="w-3.5 h-3.5 text-[#247C70]" />
-                      Export Monthly Ledger (CSV / PDF)
+                      Export Practice Ledger (CSV / PDF)
                     </span>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
                     <div className="p-4 rounded-xl bg-[#F8F8F3] border border-[#123D40]/10">
-                      <div className="text-[#222B2B]/60">Monthly Gross Production</div>
-                      <div className="text-2xl font-heading font-bold text-[#123D40] mt-1">$142,800</div>
+                      <div className="text-[#222B2B]/60">Pre-Visit Insurance Verification</div>
+                      <div className="text-lg font-heading font-bold text-[#123D40] mt-1">
+                        Automated Batch Eligibility
+                      </div>
                       <div className="text-[11px] text-[#247C70] font-semibold mt-1">
-                        94.2% Collection Ratio ($134,517 Collected)
+                        Verifies active coverage, deductibles &amp; co-pays prior to arrival
                       </div>
                     </div>
                     <div className="p-4 rounded-xl bg-[#F8F8F3] border border-[#123D40]/10">
-                      <div className="text-[#222B2B]/60">Treatment Case Acceptance</div>
-                      <div className="text-2xl font-heading font-bold text-[#123D40] mt-1">84.6%</div>
+                      <div className="text-[#222B2B]/60">AI Claim Scrubber &amp; Clearinghouse</div>
+                      <div className="text-lg font-heading font-bold text-[#123D40] mt-1">
+                        Pre-Submission Validation
+                      </div>
                       <div className="text-[11px] text-[#222B2B]/70 mt-1">
-                        Up from 68% prior to visual odontogram plans
+                        Checks CDT codes, tooth numbers &amp; required X-ray attachments
                       </div>
                     </div>
                     <div className="p-4 rounded-xl bg-[#F8F8F3] border border-[#123D40]/10">
-                      <div className="text-[#222B2B]/60">Outstanding Patient Balances</div>
-                      <div className="text-2xl font-heading font-bold text-[#123D40] mt-1">$8,283</div>
+                      <div className="text-[#222B2B]/60">Patient Payments &amp; Portal Billing</div>
+                      <div className="text-lg font-heading font-bold text-[#123D40] mt-1">
+                        Text-to-Pay &amp; Payment Plans
+                      </div>
                       <div className="text-[11px] text-[#247C70] font-semibold mt-1">
-                        Automated SMS payment links active
+                        Supports chairside card, HSA/FSA &amp; online portal statements
                       </div>
                     </div>
                   </div>
@@ -545,4 +549,3 @@ export default function DashboardShowcase() {
     </section>
   );
 }
-
